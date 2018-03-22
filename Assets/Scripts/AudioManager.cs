@@ -5,11 +5,16 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour {
     public static AudioManager instance;
 
-    public Sound[] musicList;
-    public Sound[] environmentList;
-    public Sound[] weaponList;
-    public Sound[] effectsList;
-    public Sound[] creaturesList;
+    [SerializeField]
+    private Sound[] musicList;
+    [SerializeField]
+    private Sound[] environmentList;
+    [SerializeField]
+    private Sound[] weaponList;
+    [SerializeField]
+    private Sound[] effectsList;
+    [SerializeField]
+    private Sound[] creaturesList;
 
     void Awake()
     {//Singleton statement.
@@ -69,5 +74,13 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-    //TODO Preencher Grids com audioButtons;
+    void PlaySound(Sound sound)
+    {
+        sound.Source.Play();
+    }
+
+    void StopSound(Sound sound)
+    {
+        sound.Source.Stop();
+    }
 }
