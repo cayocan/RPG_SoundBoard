@@ -16,6 +16,46 @@ public class AudioManager : MonoBehaviour {
     [SerializeField]
     private Sound[] creaturesList;
 
+    public Sound[] MusicList
+    {
+        get
+        {
+            return musicList;
+        }
+    }
+
+    public Sound[] EnvironmentList
+    {
+        get
+        {
+            return environmentList;
+        }
+    }
+
+    public Sound[] WeaponList
+    {
+        get
+        {
+            return weaponList;
+        }
+    }
+
+    public Sound[] EffectsList
+    {
+        get
+        {
+            return effectsList;
+        }
+    }
+
+    public Sound[] CreaturesList
+    {
+        get
+        {
+            return creaturesList;
+        }
+    }
+
     void Awake()
     {//Singleton statement.
         if (instance == null)
@@ -34,7 +74,7 @@ public class AudioManager : MonoBehaviour {
     void AudioManagerSetup()
     {
         //Configure Music List.
-        foreach (Sound sound in instance.musicList)
+        foreach (Sound sound in instance.MusicList)
         {
             sound.Source = gameObject.AddComponent<AudioSource>();
             sound.Source.clip = sound.audioClip;
@@ -42,7 +82,7 @@ public class AudioManager : MonoBehaviour {
         }
 
         //Configure Environment List.
-        foreach (Sound sound in instance.environmentList)
+        foreach (Sound sound in instance.EnvironmentList)
         {
             sound.Source = gameObject.AddComponent<AudioSource>();
             sound.Source.clip = sound.audioClip;
@@ -50,7 +90,7 @@ public class AudioManager : MonoBehaviour {
         }
 
         //Configure Weapon List.
-        foreach (Sound sound in instance.weaponList)
+        foreach (Sound sound in instance.WeaponList)
         {
             sound.Source = gameObject.AddComponent<AudioSource>();
             sound.Source.clip = sound.audioClip;
@@ -58,7 +98,7 @@ public class AudioManager : MonoBehaviour {
         }
 
         //Configure Effects List.
-        foreach (Sound sound in instance.effectsList)
+        foreach (Sound sound in instance.EffectsList)
         {
             sound.Source = gameObject.AddComponent<AudioSource>();
             sound.Source.clip = sound.audioClip;
@@ -66,7 +106,7 @@ public class AudioManager : MonoBehaviour {
         }
 
         //Configure Creatures List.
-        foreach (Sound sound in instance.creaturesList)
+        foreach (Sound sound in instance.CreaturesList)
         {
             sound.Source = gameObject.AddComponent<AudioSource>();
             sound.Source.clip = sound.audioClip;
@@ -74,12 +114,12 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
-    void PlaySound(Sound sound)
+    public void PlaySound(Sound sound)
     {
         sound.Source.Play();
     }
 
-    void StopSound(Sound sound)
+    public void StopSound(Sound sound)
     {
         sound.Source.Stop();
     }

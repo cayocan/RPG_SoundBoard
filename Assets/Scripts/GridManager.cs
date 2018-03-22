@@ -25,4 +25,42 @@ public class GridManager : MonoBehaviour {
             return;
         }
     }
+
+    private void Start()
+    {
+        PopulateButtonGrids();
+    }
+
+    void PopulateButtonGrids()
+    {
+        foreach (var item in AudioManager.instance.MusicList)
+        {
+            SoundButton soundButton = Instantiate(buttonPrefab, musicGrid.transform).GetComponentInChildren<SoundButton>();
+            soundButton.Sound = item;
+        }
+
+        foreach (var item in AudioManager.instance.EnvironmentList)
+        {
+            SoundButton soundButton = Instantiate(buttonPrefab, environmentGrid.transform).GetComponentInChildren<SoundButton>();
+            soundButton.Sound = item;
+        }
+
+        foreach (var item in AudioManager.instance.WeaponList)
+        {
+            SoundButton soundButton = Instantiate(buttonPrefab, weaponGrid.transform).GetComponentInChildren<SoundButton>();
+            soundButton.Sound = item;
+        }
+
+        foreach (var item in AudioManager.instance.EffectsList)
+        {
+            SoundButton soundButton = Instantiate(buttonPrefab, effectsGrid.transform).GetComponentInChildren<SoundButton>();
+            soundButton.Sound = item;
+        }
+
+        foreach (var item in AudioManager.instance.CreaturesList)
+        {
+            SoundButton soundButton = Instantiate(buttonPrefab, creaturesGrid.transform).GetComponentInChildren<SoundButton>();
+            soundButton.Sound = item;
+        }
+    }
 }
